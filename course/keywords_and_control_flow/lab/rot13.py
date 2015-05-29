@@ -3,12 +3,6 @@
 encode a message using rot13
 """
 
-from __future__ import print_function
-
-
-message="Why did the chicken cross the road?"
-wikipedia_result="Jul qvg gur puvpxra pebff gur ebnq?"
-
 def encode_to_rot13(message):
     """ accepts a string, encodes it and returns a result."""
 
@@ -28,4 +22,5 @@ def encode_to_rot13(message):
     result = ''.join(result)
     return result
 
+message = raw_input("Enter your message: ")
 print(encode_to_rot13(message))
