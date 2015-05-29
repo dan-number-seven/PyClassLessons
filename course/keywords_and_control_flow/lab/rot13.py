@@ -3,29 +3,29 @@
 encode a message using rot13
 """
 
-#import sys
 from __future__ import print_function
 
-# where is the message going to be coming from
-#input = raw_input("Enter message: ")
 
 message="Why did the chicken cross the road?"
 wikipedia_result="Jul qvg gur puvpxra pebff gur ebnq?"
 
-print("The input message is : " + message)
-
 def encode_to_rot13(message):
-    """
-    """
-    INPUT_ARRAY ="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split()
-    OUTPUT_ARRAY="NOPQRSTUVWXYZABCDEFGHIJKLM".split()
+    """ accepts a string, encodes it and returns a result."""
 
-    for letter in message:
-        printf('%s', letter)
+    alphabet ="abcdefghijklmnopqrstuvwxyz"
 
-encode_to_rot13(message)
+    result = list()
+    for character in message:
+        if character.lower() in alphabet:
+            rotated_index = (alphabet.index(character.lower()) + 13) % 26
+            if character.isupper():
+                result.append(alphabet[rotated_index].upper())
+            else:
+                result.append(alphabet[rotated_index])
+        else:
+            result.append(character)
 
+    result = ''.join(result)
+    return result
 
-
-
-
+print(encode_to_rot13(message))
